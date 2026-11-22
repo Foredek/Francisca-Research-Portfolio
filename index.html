@@ -112,16 +112,17 @@
 </template>
 <section id="work" class="rv">
 <h2>Selected work</h2>
-<div id="gate" class="gatebox"><div class="gl"><div class="label">Password protected</div>
-<h3>Detailed work and experience</h3>
-<p>My projects, full case studies, and experience timeline are behind a password. Enter it below, or email me to request access. The Radar case study is open to everyone.</p>
-<form id="gf" autocomplete="off"><label for="gp" class="sr">Password</label><input id="gp" type="password" placeholder="Password" autocomplete="off"><button class="btn fill" type="submit">Unlock</button></form>
-<p class="hint" id="gh" hidden>Hint: recent</p><p class="err" id="ge" role="alert"></p>
-<a class="btn" href="mailto:francisca.oredeko@alumni.emory.edu?subject=Portfolio%20access%20request">Request access</a><a class="btn" href="./case-studies/radar-basemap-redesign/">Read the Radar case study</a></div></div>
 
 <div class="tabs" id="ct"></div>
 <div class="tabs" id="chips"></div>
 <div class="count" id="cnt"></div>
+<div id="teaser"></div>
+<div id="gate" class="gatebox"><div class="gl"><div class="label">Password protected</div>
+<h3>See the work in detail</h3>
+<p>The projects above are a preview. The full write-ups, case studies, and experience timeline are behind a password. Enter it below, or email me to request access. The Radar case study is open to everyone.</p>
+<form id="gf" autocomplete="off"><label for="gp" class="sr">Password</label><input id="gp" type="password" placeholder="Password" autocomplete="off"><button class="btn fill" type="submit">Unlock</button></form>
+<p class="hint" id="gh" hidden>Hint: recent</p><p class="err" id="ge" role="alert"></p>
+<a class="btn" href="mailto:francisca.oredeko@alumni.emory.edu?subject=Portfolio%20access%20request">Request access</a><a class="btn" href="./case-studies/radar-basemap-redesign/">Read the Radar case study</a></div></div>
 <div id="extra"></div>
 <div class="cards" id="cards"></div>
 <div style="margin-top:18px"><button class="btn" id="more"></button></div>
@@ -215,6 +216,7 @@ var list=P.filter(function(p){return p.c===cat}),tg=[];list.forEach(function(p){
 var ch=$("#chips");ch.innerHTML="";["All"].concat(tg).forEach(function(t){var b=document.createElement("button");b.className="chip"+(t===flt?" on":"");b.textContent=t;b.onclick=function(){flt=t;more=false;work()};ch.appendChild(b)});
 var m=flt==="All"?list:list.filter(function(p){return p.g.indexOf(flt)>-1}),vis=(flt!=="All"||more)?m:m.slice(0,3);
 $("#cnt").textContent=flt==="All"?"":m.length+(m.length===1?" project matches ":" projects match ")+flt;
+$("#teaser").innerHTML=m.map(function(p,i){var n=("0"+(i+1)).slice(-2);return '<div class="box tz"><div class="n">'+n+"</div><h3>"+p.t+'</h3><div class="rl">'+p.r+"</div><div>"+p.g.map(function(x){return '<span class="tag">'+x+"</span>"}).join("")+"</div></div>"}).join("")+(cat==="healthcare"?'<div><a class="btn" href="./healthcare-research/">See my healthcare research page</a></div>':"");
 $("#extra").innerHTML=(cat==="healthcare"&&flt==="All")?$("#hcx").innerHTML:"";$("#cards").innerHTML=vis.map(card).join("");
 var b=$("#more");b.style.display=(flt==="All"&&list.length>3)?"inline-block":"none";b.textContent=more?"Show fewer projects":"Show "+(list.length-3)+" more projects";b.onclick=function(){more=!more;work()}}
 $("#tl").innerHTML=R.map(function(r){return '<div class="role" tabindex="0"><h3>'+r[0]+"</h3><small>"+r[1]+" &middot; "+r[2]+'</small><div class="story">'+r[3]+"</div></div>"}).join("");

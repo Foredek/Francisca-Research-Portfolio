@@ -105,7 +105,7 @@ footer{text-align:center;color:var(--grey);font-size:.85rem;padding:40px 5vw;bor
 @media(max-width:600px){.figs{grid-template-columns:1fr}}
 .csend{margin-top:56px!important;padding-top:24px;border-top:1px solid var(--line)}
 @media(max-width:768px){.row{grid-template-columns:1fr;gap:4px}.cs{padding-top:36px}.csname{display:none}.sw{grid-template-columns:52px repeat(8,1fr);gap:3px}}
-.hint[hidden]{display:none}#gate{display:none}.gated #gate{display:block}.gated #work>*:not(h2):not(#gate),.gated #exp{display:none}
+.hint[hidden]{display:none}#gate{display:none}.gated #gate{display:block}.gated #work>*:not(h2):not(#gate):not(#ct):not(#chips):not(#teaser),.gated #exp{display:none}#teaser{display:none}.gated #teaser{display:grid;gap:12px;margin:18px 0}.tz{padding:20px 24px}.tz h3{font-size:1.2rem;margin:2px 0 4px}.tz .rl{margin-bottom:8px}.gated #gate{margin-top:8px}
 .gatebox{margin-top:18px;position:relative;border-radius:24px;overflow:hidden;padding:44px 5vw;isolation:isolate;background:#EAEFE9}
 .gatebox:before,.gatebox:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(70px)}
 .gatebox:before{width:360px;height:360px;background:#B9D3C4;left:-80px;top:-100px}.gatebox:after{width:320px;height:320px;background:#E6D3A8;right:-60px;bottom:-110px}
